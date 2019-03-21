@@ -1,0 +1,24 @@
+.form_register {
+    width: 500px;
+    height: 500px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.send {
+    padding: 10px 20px;
+}
+.form_block {
+    margin-bottom: 50px;
+}
+.login_rule,
+.password_rule,
+.password_accept_info {
+    margin-top: 0px;
+}
+.error {
+    color: red;
+}

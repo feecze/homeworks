@@ -1,0 +1,15 @@
+table {
+    border-collapse: collapse;
+    width: 400px;
+    height: 400px;
+}
+td {
+    border: 1px solid rgb(0, 0, 0); 
+}
+.black_square {
+    background-color: black;
+}
+.chess_title {
+    text-align: center;
+    font-weight: 600;
+}
