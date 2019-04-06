@@ -42,3 +42,12 @@ html, body {
     flex: 0 0 auto;
     height: 80px;
 }
+
+.product_card {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 150px;
+    width: 200px;
+    box-shadow: 9px 4px 10px 0px black;
+    margin: 5px 0 5px 0;
+}
