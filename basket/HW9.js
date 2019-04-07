@@ -1,4 +1,12 @@
 class Shop {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        let newProduct = document.querySelector('.show_modal');
+        newProduct.addEventListener('click', this.toggleModal);
+    }
     products = [
         {
             name: 'avocado',
@@ -50,17 +58,18 @@ class Shop {
         if(product.name) {
             this.products.push(product);
         }
+    };
+
+    toggleModal() {
+        let modal = document.querySelector('.modal');
+        if(modal.classList.contains('open')) {
+            modal.classList.remove('open');
+        }else {
+            modal.classList.add('open');
+        }
     }
 }
 
 let shop = new Shop();
 
-
-let product1 = {
-    name: 'socks',
-    price: 440,
-    description: 'clothes'
-};
-
-shop.addProducts(product1)
 shop.renderProducts();
