@@ -6,6 +6,8 @@ html, body {
     display: flex;
     flex-flow: column nowrap;
     height: 100%;
+    width: 1200px;
+    margin: 0 auto;
 }
 
 .header {
@@ -49,5 +51,18 @@ html, body {
     height: 150px;
     width: 200px;
     box-shadow: 9px 4px 10px 0px black;
-    margin: 5px 0 5px 0;
+    margin: 5px 10px 5px 10px;
+    font-family: 'Comic Sans MS', cursive;
+    color: white;
+    background-color: #297f88;
+    text-align: center;
+}
+
+.products_list {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.product_card p:nth-child(2) {
+    margin: 0;
 }
