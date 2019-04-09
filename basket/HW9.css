@@ -96,6 +96,8 @@ html, body {
     position: absolute;
     top: 0;
     left: 10px;
+    color: white;
+    font-family: 'Comic Sans MS', cursive;
 }
 
 .modal .modal_label input {

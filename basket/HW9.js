@@ -6,6 +6,8 @@ class Shop {
     init() {
         let newProduct = document.querySelector('.show_modal');
         newProduct.addEventListener('click', this.toggleModal);
+        let saveProduct = document.querySelector('.add_product');
+        saveProduct.addEventListener('click', this.createProduct);
     }
     products = [
         {
@@ -67,6 +69,28 @@ class Shop {
         }else {
             modal.classList.add('open');
         }
+    };
+
+    cleanContent() {
+        let ul = document.querySelector('.products_list');
+        for(let i = ul.childNodes.length - 1; i >= 0; i--) {
+            ul.childNodes[i].remove();
+        }
+    }
+
+    createProduct = (event) => {
+        let modal = event.target.parentElement;
+        let inputs = modal.querySelectorAll('input');
+        let product = {};
+        inputs.forEach((input) => {
+            let value = input.value;
+            input.value = '';
+            let type = input.dataset.type;
+            product[type] = value;
+        });
+        this.addProducts(product);
+        this.cleanContent();
+        this.renderProducts();
     }
 }
 
