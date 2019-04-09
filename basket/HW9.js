@@ -1,5 +1,6 @@
 class Shop {
-    constructor() {
+    constructor(products) {
+        this.products = products;
         this.init();
     }
 
@@ -9,29 +10,7 @@ class Shop {
         let saveProduct = document.querySelector('.add_product');
         saveProduct.addEventListener('click', this.createProduct);
     }
-    products = [
-        {
-            name: 'avocado',
-            price: 100,
-            description: 'tasty and healthy'
-        },
-        {
-            name: 'chips',
-            price: 25,
-            description: 'tasty and unhealthy'
-        },
-        {
-            name: 'water',
-            price: 10,
-            description: 'tasty and very healthy'
-        },
-        {
-            name: 'cola',
-            price: 40,
-            description: 'tasty and very unhealthy'
-        },
-    ];
-
+    products = [];
     basket = [];
 
     renderProducts() {
@@ -93,7 +72,28 @@ class Shop {
         this.renderProducts();
     }
 }
-
-let shop = new Shop();
+products = [
+    {
+        name: 'avocado',
+        price: 100,
+        description: 'tasty and healthy'
+    },
+    {
+        name: 'chips',
+        price: 25,
+        description: 'tasty and unhealthy'
+    },
+    {
+        name: 'water',
+        price: 10,
+        description: 'tasty and very healthy'
+    },
+    {
+        name: 'cola',
+        price: 40,
+        description: 'tasty and very unhealthy'
+    },
+];
+let shop = new Shop(products);
 
 shop.renderProducts();
