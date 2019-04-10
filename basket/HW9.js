@@ -11,6 +11,8 @@ class Shop {
         saveProduct.addEventListener('click', this.createProduct);
         let showBasket = document.querySelector('.header_basket');
         showBasket.addEventListener('click', this.toggleProducts);
+        let basket = document.querySelector('.products_list');
+        basket.addEventListener('click', this.addToBasket);
     }
     products = [];
     basket = [];
@@ -20,6 +22,7 @@ class Shop {
         for (let i = 0; i < this.products.length; i++) {
             let li = document.createElement('li');
             li.classList.add('product_card');
+            li.setAttribute('data-id', this.products[i].id)
             
             let name = document.createElement('p');
             name.textContent = this.products[i].name;
@@ -94,27 +97,44 @@ class Shop {
         let totalCount = document.querySelector('.num_of_goods');
         totalCount.textContent = this.calcTotalCount();
     }
+
+    addToBasket = (event) => {
+        let parent = Array.from(event.path).find((node) => {
+            return node.classList && node.classList.contains('product_card');
+        })
+        if (parent) {
+            let product = this.products.find((item) => {
+                return item.id === parent.getAttribute('data-id')
+            })
+            this.basket.push(product)
+        }
+        console.log(this.basket);
+    }
 }
 productsDB = [
     {
         name: 'avocado',
         price: 100,
-        description: 'tasty and healthy'
+        description: 'tasty and healthy',
+        id: '1'
     },
     {
         name: 'chips',
         price: 25,
-        description: 'tasty and unhealthy'
+        description: 'tasty and unhealthy',
+        id: '2'
     },
     {
         name: 'water',
         price: 10,
-        description: 'tasty and very healthy'
+        description: 'tasty and very healthy',
+        id: '3'
     },
     {
         name: 'cola',
         price: 40,
-        description: 'tasty and very unhealthy'
+        description: 'tasty and very unhealthy',
+        id: '4'
     },
 ];
 let shop = new Shop(productsDB);
