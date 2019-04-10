@@ -105,3 +105,15 @@ html, body {
     top: 0;
     right: 10px;
 }
+
+.show_modal {
+    background-color: black;
+    color: white;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.add_product {
+    background-color: #ffbf00;
+    color: black;
+    font-family: 'Comic Sans MS', cursive;
+}
