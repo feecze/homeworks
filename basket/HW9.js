@@ -9,6 +9,8 @@ class Shop {
         newProduct.addEventListener('click', this.toggleModal);
         let saveProduct = document.querySelector('.add_product');
         saveProduct.addEventListener('click', this.createProduct);
+        let showBasket = document.querySelector('.header_basket');
+        showBasket.addEventListener('click', this.toggleProducts);
     }
     products = [];
     basket = [];
@@ -71,6 +73,15 @@ class Shop {
         this.cleanContent();
         this.renderProducts();
     }
+
+    toggleProducts() {
+        let products = document.querySelector('.show_basket');
+        if(products.classList.contains('open')) {
+            products.classList.remove('open');
+        }else {
+            products.classList.add('open');
+        }
+    };
 }
 products = [
     {
