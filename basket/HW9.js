@@ -45,11 +45,7 @@ class Shop {
 
     toggleModal() {
         let modal = document.querySelector('.modal');
-        if(modal.classList.contains('open')) {
-            modal.classList.remove('open');
-        }else {
-            modal.classList.add('open');
-        }
+        modal.classList.toggle('open');
     };
 
     cleanContent() {
@@ -74,16 +70,32 @@ class Shop {
         this.renderProducts();
     }
 
-    toggleProducts() {
+    toggleProducts = () => {
         let products = document.querySelector('.show_basket');
-        if(products.classList.contains('open')) {
-            products.classList.remove('open');
-        }else {
-            products.classList.add('open');
-        }
+        products.classList.toggle('open');
+        this.renderBasket();
     };
+
+    calcTotalPrice() {
+        let totalPrice = 0;
+        this.basket.forEach((product) => {
+            totalPrice += product.price;
+        });
+        return totalPrice;
+    };
+
+    calcTotalCount() {
+        return this.basket.length;
+    };
+
+    renderBasket() {
+        let totalPrice = document.querySelector('.total_price');
+        totalPrice.textContent = this.calcTotalPrice();
+        let totalCount = document.querySelector('.num_of_goods');
+        totalCount.textContent = this.calcTotalCount();
+    }
 }
-products = [
+productsDB = [
     {
         name: 'avocado',
         price: 100,
@@ -105,6 +117,6 @@ products = [
         description: 'tasty and very unhealthy'
     },
 ];
-let shop = new Shop(products);
+let shop = new Shop(productsDB);
 
 shop.renderProducts();
