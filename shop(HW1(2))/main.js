@@ -28,7 +28,7 @@ document.querySelector('.cart-block').addEventListener ('click', (evt) => {
 
 function fetchData () {
 	let arr = [];
-	for (let i = 0; i < ids.length; i++) {
+	for (let i of ids) {
 		arr.push (createProduct (i))
 	}
 	return arr
@@ -37,22 +37,22 @@ function fetchData () {
 function createProduct (i) {
 	return {
 		id: i,
-		name: NAMES [i],
-		price: PRICES [i],
+		name: NAMES[i],
+		price: PRICES[i],
 		img: image,
 		quantity: 0,
 		createTemplate: function () {
 			return `<div class="product-item" data-id="${this.id}>
-						<img src="${this.img}" alt="some image">
-						<div class="desc"
-							<h3>${this.name}</h3>
-							<p>${this.price}</p>
-							<button class="buy-btn" 
-							data-id="${this.id}"
-							data-name="${this.name}"
-							data-price="${this.price}">КУПИТЬ</button>
-						</div>
-					</div>`
+			<img src="${this.img}" alt="some image">
+			<div class="desc"
+				<h3>${this.name}</h3>
+				<p>${this.price}</p>
+				<button class="buy-btn" 
+				data-id="${this.id}"
+				data-name="${this.name}"
+				data-price="${this.price}">КУПИТЬ</button>
+			</div>
+		</div>`
 		}
 	}
 }
@@ -86,22 +86,10 @@ function addProduct (product) {
 }
 
 
-function renderCart (i) {
+function renderCart () {
 	let allProducts = '';
 	for (item of userCart) {
-		allProducts += `<div class="cart-item" data-id="${item.id}>
-							<div class="product-bio">
-								<img src="${item.img}" alt="some image">
-								<div class="product-desc"
-									<p class="product-title">${item.name}</p>
-									<p class="product-quantity">${item.quantity}</p>
-									<p class="product-single-price">${item.price}</p>
-								</div>
-								<div class="right-block">
-									<button class="del-btn" data-id="${item.id}">&times;</button>
-								</div>
-							</div>
-						</div>`
+		allProducts += renderCartItem(item);
 	}
 	cartBlock.innerHTML = allProducts
 }
@@ -118,4 +106,20 @@ function removeProduct (product) {
 		document.querySelector (`.cart-item[data-id="${productID}"]`)
 	}
 	renderCart ()
+}
+
+function renderCartItem(item) {
+	return `<div class="cart-item" data-id="${item.id}>
+		<div class="product-bio">
+			<img src="${item.img}" alt="some image">
+			<div class="product-desc"
+				<p class="product-title">${item.name}</p>
+				<p class="product-quantity">${item.quantity}</p>
+				<p class="product-single-price">${item.price}</p>
+			</div>
+			<div class="right-block">
+				<button class="del-btn" data-id="${item.id}">&times;</button>
+			</div>
+		</div>
+	</div>`
 }
