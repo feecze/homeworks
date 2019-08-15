@@ -1,4 +1,4 @@
-let Admin = {
+let admin = {
   name: {
     firstName: 'Nikita',
     lastName: 'Adminov'
@@ -21,6 +21,32 @@ let Admin = {
       city: 'Moscow',
       street: 'Nagorniy Proezd',
       metro: 'Verhnie Kotli'
+    }
+  }
+};
+
+let artyom = {
+  name: {
+    firstName: 'Artyom',
+    lastName: 'Chikirikov'
+  },
+
+  auth: {
+    login: 'artemchikir',
+    nickname: 'CHIKIR_NE_SHKOLOTA',
+    password: 'qwerty12345'
+  },
+
+  adress: {
+    home: {
+      city: 'Moscow',
+      street: 'Studeniy proezd',
+      metro: 'Medvedkovo'
+    },
+
+    work: {
+      city: 'Boltino',
+      street: 'Ostashkovskoe shosse',
     }
   }
 };
